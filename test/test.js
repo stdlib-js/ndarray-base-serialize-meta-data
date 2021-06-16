@@ -37,7 +37,7 @@ tape( 'main export is a function', function test( t ) {
 
 tape( 'if an environment support BigInts, the function includes BigInt operations', function test( t ) {
 	var serialize = proxyquire( './../lib', {
-		'@stdlib/assert/has-bigint-support': hasSupport
+		'@stdlib/assert-has-bigint-support': hasSupport
 	});
 
 	t.strictEqual( serialize, main, 'is expected value' );
@@ -50,7 +50,7 @@ tape( 'if an environment support BigInts, the function includes BigInt operation
 
 tape( 'if an environment does not support BigInts, the function is a polyfill', function test( t ) {
 	var serialize = proxyquire( './../lib', {
-		'@stdlib/assert/has-bigint-support': hasSupport
+		'@stdlib/assert-has-bigint-support': hasSupport
 	});
 
 	t.strictEqual( serialize, polyfill, 'is expected value' );
