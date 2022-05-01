@@ -1,6 +1,6 @@
 {
   "name": "@stdlib/ndarray-base-serialize-meta-data",
-  "version": "0.0.0",
+  "version": "0.0.6",
   "description": "Serialize ndarray meta data.",
   "license": "Apache-2.0",
   "author": {
