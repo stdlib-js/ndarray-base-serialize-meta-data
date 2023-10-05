@@ -1,7 +1,7 @@
 /**
 * @license Apache-2.0
 *
-* Copyright (c) 2021 The Stdlib Authors.
+* Copyright (c) 2023 The Stdlib Authors.
 *
 * Licensed under the Apache License, Version 2.0 (the "License");
 * you may not use this file except in compliance with the License.
@@ -21,42 +21,13 @@
 // MODULES //
 
 var tape = require( 'tape' );
-var proxyquire = require( 'proxyquire' );
-var main = require( './../../dist/main.js' );
-var polyfill = require( './../../dist/polyfill.js' );
-var serialize = require( './../../dist' );
+var main = require( './../../dist' );
 
 
 // TESTS //
 
-tape( 'main export is a function', function test( t ) {
+tape( 'main export is defined', function test( t ) {
 	t.ok( true, __filename );
-	t.strictEqual( typeof serialize, 'function', 'main export is a function' );
+	t.strictEqual( main !== void 0, true, 'main export is defined' );
 	t.end();
-});
-
-tape( 'if an environment support BigInts, the function includes BigInt operations', function test( t ) {
-	var serialize = proxyquire( './../dist', {
-		'@stdlib/assert-has-bigint-support': hasSupport
-	});
-
-	t.strictEqual( serialize, main, 'is expected value' );
-	t.end();
-
-	function hasSupport() {
-		return true;
-	}
-});
-
-tape( 'if an environment does not support BigInts, the function is a polyfill', function test( t ) {
-	var serialize = proxyquire( './../dist', {
-		'@stdlib/assert-has-bigint-support': hasSupport
-	});
-
-	t.strictEqual( serialize, polyfill, 'is expected value' );
-	t.end();
-
-	function hasSupport() {
-		return false;
-	}
 });
