@@ -20,7 +20,7 @@
 
 // MODULES //
 
-var bench = require( '@stdlib/bench' );
+var bench = require( '@stdlib/bench-harness' );
 var Float64Array = require( '@stdlib/array-float64' );
 var ndarrayBase = require( '@stdlib/ndarray-base-ctor' );
 var ndarray = require( '@stdlib/ndarray-ctor' );
