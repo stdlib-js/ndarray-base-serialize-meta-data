@@ -54,6 +54,11 @@ limitations under the License.
 To use in Observable,
 
 ```javascript
+serialize = require( 'https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-base-serialize-meta-data@umd/browser.js' )
+```
+The previous example will load the latest bundled code from the umd branch. Alternatively, you may load a specific version by loading the file from one of the [tagged bundles](https://github.com/stdlib-js/ndarray-base-serialize-meta-data/tags). For example,
+
+```javascript
 serialize = require( 'https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-base-serialize-meta-data@v0.2.0-umd/browser.js' )
 ```
 
@@ -66,7 +71,7 @@ var serialize = require( 'path/to/vendor/umd/ndarray-base-serialize-meta-data/in
 To include the bundle in a webpage,
 
 ```html
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-base-serialize-meta-data@v0.2.0-umd/browser.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-base-serialize-meta-data@umd/browser.js"></script>
 ```
 
 If no recognized module system is present, access bundle contents via the global scope:
@@ -163,7 +168,7 @@ var dv = serialize( arr );
 <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-array@umd/browser.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/array-uint8@umd/browser.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/number-float64-base-from-int64-bytes@umd/browser.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-base-serialize-meta-data@v0.2.0-umd/browser.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-base-serialize-meta-data@umd/browser.js"></script>
 <script type="text/javascript">
 (function () {
 
