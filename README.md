@@ -52,7 +52,7 @@ limitations under the License.
 ## Usage
 
 ```javascript
-import serialize from 'https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-base-serialize-meta-data@esm/index.mjs';
+import serialize from 'https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-base-serialize-meta-data@v0.2.0-esm/index.mjs';
 ```
 
 #### serialize( x )
@@ -141,7 +141,7 @@ import IS_LITTLE_ENDIAN from 'https://cdn.jsdelivr.net/gh/stdlib-js/assert-is-li
 import array from 'https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-array@esm/index.mjs';
 import Uint8Array from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-uint8@esm/index.mjs';
 import fromInt64Bytes from 'https://cdn.jsdelivr.net/gh/stdlib-js/number-float64-base-from-int64-bytes@esm/index.mjs';
-import serialize from 'https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-base-serialize-meta-data@esm/index.mjs';
+import serialize from 'https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-base-serialize-meta-data@v0.2.0-esm/index.mjs';
 
 // Create an ndarray:
 var x = array( [ [ 1, 2 ], [ 3, 4 ] ] );
