@@ -53,7 +53,8 @@
     "@stdlib/ndarray-index-modes": "^0.2.1",
     "@stdlib/ndarray-orders": "^0.2.1",
     "@stdlib/number-float64-base-to-int64-bytes": "^0.2.1",
-    "@stdlib/types": "^0.3.2"
+    "@stdlib/types": "^0.3.2",
+    "@stdlib/error-tools-fmtprodmsg": "^0.2.1"
   },
   "devDependencies": {
     "@stdlib/array-float64": "^0.2.1",
