@@ -3,8 +3,31 @@
   "version": "0.2.1",
   "description": "Serialize ndarray meta data.",
   "license": "Apache-2.0",
-  "type": "module",
-  "main": "./mod.js",
+  "author": {
+    "name": "The Stdlib Authors",
+    "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+  },
+  "contributors": [
+    {
+      "name": "The Stdlib Authors",
+      "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+    }
+  ],
+  "main": "./lib",
+  "directories": {
+    "benchmark": "./benchmark",
+    "doc": "./docs",
+    "example": "./examples",
+    "lib": "./lib",
+    "test": "./test"
+  },
+  "types": "./docs/types",
+  "scripts": {
+    "test": "make test",
+    "test-cov": "make test-cov",
+    "examples": "make examples",
+    "benchmark": "make benchmark"
+  },
   "homepage": "https://stdlib.io",
   "repository": {
     "type": "git",
@@ -13,6 +36,54 @@
   "bugs": {
     "url": "https://github.com/stdlib-js/stdlib/issues"
   },
+  "dependencies": {
+    "@stdlib/array-buffer": "^0.2.1",
+    "@stdlib/array-dataview": "^0.2.1",
+    "@stdlib/array-uint8": "^0.2.1",
+    "@stdlib/assert-has-bigint-support": "^0.2.1",
+    "@stdlib/assert-is-little-endian": "^0.2.1",
+    "@stdlib/bigint-ctor": "^0.2.1",
+    "@stdlib/ndarray-base-bytes-per-element": "^0.2.1",
+    "@stdlib/ndarray-base-dtype": "^0.2.1",
+    "@stdlib/ndarray-base-offset": "^0.2.1",
+    "@stdlib/ndarray-base-order": "^0.2.1",
+    "@stdlib/ndarray-base-shape": "^0.2.1",
+    "@stdlib/ndarray-base-strides": "^0.2.1",
+    "@stdlib/ndarray-dtypes": "^0.2.1",
+    "@stdlib/ndarray-index-modes": "^0.2.1",
+    "@stdlib/ndarray-orders": "^0.2.1",
+    "@stdlib/number-float64-base-to-int64-bytes": "^0.2.1",
+    "@stdlib/types": "^0.3.2",
+    "@stdlib/error-tools-fmtprodmsg": "^0.2.1"
+  },
+  "devDependencies": {
+    "@stdlib/array-float64": "^0.2.1",
+    "@stdlib/assert-is-dataview": "^0.2.1",
+    "@stdlib/ndarray-array": "^0.2.1",
+    "@stdlib/ndarray-base-ctor": "^0.2.1",
+    "@stdlib/ndarray-ctor": "^0.2.1",
+    "@stdlib/number-float64-base-from-int64-bytes": "^0.2.1",
+    "proxyquire": "^2.0.0",
+    "tape": "git+https://github.com/kgryte/tape.git#fix/globby",
+    "istanbul": "^0.4.1",
+    "tap-min": "git+https://github.com/Planeshifter/tap-min.git",
+    "@stdlib/bench-harness": "^0.2.1"
+  },
+  "engines": {
+    "node": ">=0.10.0",
+    "npm": ">2.7.0"
+  },
+  "os": [
+    "aix",
+    "darwin",
+    "freebsd",
+    "linux",
+    "macos",
+    "openbsd",
+    "sunos",
+    "win32",
+    "windows"
+  ],
   "keywords": [
     "stdlib",
     "stdtypes",
@@ -30,6 +101,7 @@
     "utils",
     "util"
   ],
+  "__stdlib__": {},
   "funding": {
     "type": "opencollective",
     "url": "https://opencollective.com/stdlib"
