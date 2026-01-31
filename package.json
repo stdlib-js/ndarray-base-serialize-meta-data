@@ -43,9 +43,9 @@
     "@stdlib/assert-has-bigint-support": "^0.2.2",
     "@stdlib/assert-is-little-endian": "^0.2.2",
     "@stdlib/bigint-ctor": "^0.2.2",
-    "@stdlib/ndarray-base-bytes-per-element": "^0.2.2",
+    "@stdlib/ndarray-base-bytes-per-element": "^0.3.0",
     "@stdlib/ndarray-base-dtype": "^0.2.2",
-    "@stdlib/ndarray-base-dtype-enums": "github:stdlib-js/ndarray-base-dtype-enums#main",
+    "@stdlib/ndarray-base-dtype-enums": "^0.1.0",
     "@stdlib/ndarray-base-offset": "^0.2.2",
     "@stdlib/ndarray-base-order": "^0.2.2",
     "@stdlib/ndarray-base-shape": "^0.2.2",
@@ -100,7 +100,6 @@
     "utils",
     "util"
   ],
-  "__stdlib__": {},
   "funding": {
     "type": "opencollective",
     "url": "https://opencollective.com/stdlib"
