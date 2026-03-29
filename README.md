@@ -45,14 +45,32 @@ limitations under the License.
 
 <!-- Package usage documentation. -->
 
+<section class="installation">
 
+## Installation
+
+```bash
+npm install @stdlib/ndarray-base-serialize-meta-data
+```
+
+Alternatively,
+
+-   To load the package in a website via a `script` tag without installation and bundlers, use the [ES Module][es-module] available on the [`esm`][esm-url] branch (see [README][esm-readme]).
+-   If you are using Deno, visit the [`deno`][deno-url] branch (see [README][deno-readme] for usage intructions).
+-   For use in Observable, or in browser/node environments, use the [Universal Module Definition (UMD)][umd] build available on the [`umd`][umd-url] branch (see [README][umd-readme]).
+
+The [branches.md][branches-url] file summarizes the available branches and displays a diagram illustrating their relationships.
+
+To view installation and usage instructions specific to each branch build, be sure to explicitly navigate to the respective README files on each branch, as linked to above.
+
+</section>
 
 <section class="usage">
 
 ## Usage
 
 ```javascript
-import serialize from 'https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-base-serialize-meta-data@deno/mod.js';
+var serialize = require( '@stdlib/ndarray-base-serialize-meta-data' );
 ```
 
 #### serialize( x )
@@ -60,7 +78,7 @@ import serialize from 'https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-base-serial
 Serializes [ndarray][@stdlib/ndarray/ctor] meta data.
 
 ```javascript
-import array from 'https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-array@deno/mod.js';
+var array = require( '@stdlib/ndarray-array' );
 
 var arr = array( [ [ 1, 2 ], [ 3, 4 ] ] );
 var dv = serialize( arr );
@@ -132,22 +150,29 @@ var dv = serialize( arr );
 <!-- eslint no-undef: "error" -->
 
 ```javascript
-import IS_LITTLE_ENDIAN from 'https://cdn.jsdelivr.net/gh/stdlib-js/assert-is-little-endian@deno/mod.js';
-import array from 'https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-array@deno/mod.js';
-import Uint8Array from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-uint8@deno/mod.js';
-import fromInt64Bytes from 'https://cdn.jsdelivr.net/gh/stdlib-js/number-float64-base-from-int64-bytes@deno/mod.js';
-import serialize from 'https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-base-serialize-meta-data@deno/mod.js';
+var IS_LITTLE_ENDIAN = require( '@stdlib/assert-is-little-endian' );
+var getDType = require( '@stdlib/ndarray-dtype' );
+var getShape = require( '@stdlib/ndarray-shape' );
+var getStrides = require( '@stdlib/ndarray-strides' );
+var getOffset = require( '@stdlib/ndarray-offset' );
+var getOrder = require( '@stdlib/ndarray-order' );
+var array = require( '@stdlib/ndarray-array' );
+var ndims = require( '@stdlib/ndarray-ndims' );
+var join = require( '@stdlib/array-base-join' );
+var Uint8Array = require( '@stdlib/array-uint8' );
+var fromInt64Bytes = require( '@stdlib/number-float64-base-from-int64-bytes' );
+var serialize = require( '@stdlib/ndarray-base-serialize-meta-data' );
 
 // Create an ndarray:
 var x = array( [ [ 1, 2 ], [ 3, 4 ] ] );
 
 // Print various properties:
-console.log( 'dtype: %s', x.dtype );
-console.log( 'ndims: %d', x.ndims );
-console.log( 'shape: [ %s ]', x.shape.join( ', ' ) );
-console.log( 'strides: [ %s ]', x.strides.join( ', ' ) );
-console.log( 'offset: %d', x.offset );
-console.log( 'order: %s', x.order );
+console.log( 'dtype: %s', getDType( x ) );
+console.log( 'ndims: %d', ndims( x ) );
+console.log( 'shape: [ %s ]', join( getShape( x ), ', ' ) );
+console.log( 'strides: [ %s ]', join( getStrides( x ), ', ' ) );
+console.log( 'offset: %d', getOffset( x ) );
+console.log( 'order: %s', getOrder( x ) );
 
 // Serialize ndarray meta data to a DataView:
 var dv = serialize( x );
@@ -161,30 +186,30 @@ var dtype = dv.getInt16( 1, IS_LITTLE_ENDIAN );
 console.log( 'dtype (enum): %d', dtype );
 
 // Extract the number of dimensions:
-var ndims = fromInt64Bytes( bytes, 1, 3 );
-console.log( 'ndims: %d', ndims );
+var N = fromInt64Bytes( bytes, 1, 3 );
+console.log( 'ndims: %d', N );
 
 // Extract the shape:
 var shape = [];
 var i;
-for ( i = 0; i < ndims; i++ ) {
+for ( i = 0; i < N; i++ ) {
     shape.push( fromInt64Bytes( bytes, 1, 11+(i*8) ) );
 }
 console.log( 'shape: [ %s ]', shape.join( ', ' ) );
 
 // Extract the strides (in units of bytes):
 var strides = [];
-for ( i = 0; i < ndims; i++ ) {
-    strides.push( fromInt64Bytes( bytes, 1, 11+(ndims*8)+(i*8) ) );
+for ( i = 0; i < N; i++ ) {
+    strides.push( fromInt64Bytes( bytes, 1, 11+(N*8)+(i*8) ) );
 }
 console.log( 'strides (bytes): [ %s ]', strides.join( ', ' ) );
 
 // Extract the index offset (in bytes):
-var offset = fromInt64Bytes( bytes, 1, 11+(ndims*16) );
+var offset = fromInt64Bytes( bytes, 1, 11+(N*16) );
 console.log( 'offset (bytes): %d', offset );
 
 // Extract the order (enum):
-var order = dv.getInt8( 19+(ndims*16) );
+var order = dv.getInt8( 19+(N*16) );
 console.log( 'order (enum): %d', order );
 ```
 
@@ -217,7 +242,7 @@ console.log( 'order (enum): %d', order );
 
 ## Notice
 
-This package is part of [stdlib][stdlib], a standard library with an emphasis on numerical and scientific computing. The library provides a collection of robust, high performance libraries for mathematics, statistics, streams, utilities, and more.
+This package is part of [stdlib][stdlib], a standard library for JavaScript and Node.js, with an emphasis on numerical and scientific computing. The library provides a collection of robust, high performance libraries for mathematics, statistics, streams, utilities, and more.
 
 For more information on the project, filing bug reports and feature requests, and guidance on how to develop [stdlib][stdlib], see the main project [repository][stdlib].
 
@@ -280,7 +305,7 @@ Copyright &copy; 2016-2026. The Stdlib [Authors][stdlib-authors].
 
 [stdlib-license]: https://raw.githubusercontent.com/stdlib-js/ndarray-base-serialize-meta-data/main/LICENSE
 
-[@stdlib/ndarray/ctor]: https://github.com/stdlib-js/ndarray-ctor/tree/deno
+[@stdlib/ndarray/ctor]: https://github.com/stdlib-js/ndarray-ctor
 
 </section>
 
